@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+    
+    <var name="traspasoBean" class="profesorp.webflow.controller.TraspasoBean"/>
+    <on-start>       
+        <evaluate expression="logicaService.getCliente()" result="flowScope.cliente" />              
+    </on-start>
+    
+    <view-state id="cuentaOrigen" model="traspasoBean">        
+        <on-render>
+            <evaluate expression="logicaService.getCuentasByCliente()" result="flowScope.cuentas" />
+        </on-render>
+        <transition on="activate" to="importe"/>       
+        
+    </view-state>
+ 
+    <view-state id="importe" model="traspasoBean">        
+        <transition on="salir" to="confirmar"/>
+    </view-state>
+
+    <view-state id="confirmar">        
+        <transition on="salir" to="salir"/>
+    </view-state>
+    
+    <view-state id="failure" />
+    <end-state id="salir" view="externalRedirect:./index" />
+    <global-transitions>
+        <transition on="cancel" to="salir" />
+    </global-transitions>
+</flow>
