@@ -5,3 +5,5 @@ Utilizo seguridad en Spring usando  autentificando por JDBC
 Las paginas estan creadas con JSTL, apoyandome en JQuery y BootStrap.
 
 Como base de datos uso H2.
+
+Puedes ver la explicación del programa en: www.profesor-p.com
