@@ -2,12 +2,14 @@ package profesorp.webflow.controller;
 
 import java.io.Serializable;
 import java.sql.Date;
+
 import lombok.Data;
 
 @Data
 public class TraspasoBean implements Serializable
 {
     String cuentaOrigen="";
+    
     double importe=0;
     String cuentaFinal="";    
     Date fechaTraspaso ;

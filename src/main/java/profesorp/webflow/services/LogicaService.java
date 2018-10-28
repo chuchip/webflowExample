@@ -48,16 +48,21 @@ public class LogicaService {
      * @return 
      */
     public boolean hasCredit(TraspasoBean traspasoBean)
-    {
-        traspasoBean.setPeriodico(traspasoBean.isPuestoPeriodico());
-         Cuentas cuentas= cuentasRepository.findById(traspasoBean.getCuentaOrigen()).orElseThrow(()-> new NotFoundException("Cuenta: "+traspasoBean.getCuentaOrigen()+" No encontrada"));
-         if ( cuentas.getImporte()>=traspasoBean.getImporte())
-         {
+    {       
+        traspasoBean.setPeriodico(traspasoBean.isPuestoPeriodico()); // Desactiva periodo si no se ha marcado el checkbos en la vista
+        if (traspasoBean.getCuentaFinal().length()<3)
+        {
+           traspasoBean.setMsgImporte("Cuenta final debe tener mas de 3 digitos");   
+           return false;
+        }
+        Cuentas cuentas= cuentasRepository.findById(traspasoBean.getCuentaOrigen()).orElseThrow(()-> new NotFoundException("Cuenta: "+traspasoBean.getCuentaOrigen()+" No encontrada"));
+        if ( cuentas.getImporte()>=traspasoBean.getImporte())
+        {
              traspasoBean.setMsgImporte(null);
              return true;
-         }         
-         traspasoBean.setMsgImporte("No tiene suficiente dinero en la cuenta origen");
-         return false;
+        }         
+        traspasoBean.setMsgImporte("No tiene suficiente dinero en la cuenta origen");
+        return false;
     }
     public boolean checkImporte(TraspasoBean traspasoBean)
     {

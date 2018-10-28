@@ -17,7 +17,7 @@
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <input type="hidden" name="_eventId" value="salir">
                     <div class="form-group">                 
-                        <label class="etiqueta" for="Cuenta">Cuenta </label>
+                        <label class="etiqueta" for="CuentaOrigen">Cuenta Origen </label>
                         <input type="text" name="cuentaOrigen" value="${traspasoBean.cuentaOrigen}" disabled >
                     </div>
                     <div class="form-group">
@@ -28,6 +28,10 @@
                                 <strong>Atencion!</strong> ${traspasoBean.getMsgImporte()}
                             </div>
                         </c:if>                    
+                    </div>
+                    <div class="form-group">
+                        <label class="etiqueta" for="CuentaDestino">Cuenta Destino </label>
+                        <input type="text" name="cuentaFinal" value="${traspasoBean.cuentaFinal}" >
                     </div>
                     <div class="form-group">
                          <label class="etiqueta"  for="Periodico">Traspaso Periodico</label>

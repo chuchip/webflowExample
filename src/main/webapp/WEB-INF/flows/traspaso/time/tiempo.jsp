@@ -26,6 +26,10 @@
                         <label class="etiqueta" for="Importe">Introduzca Importe </label>
                         <input class="importe" type="text" name="importe" value="${traspasoBean.importe}"  disabled>                                       
                     </div>
+                     <div class="form-group">
+                        <label class="etiqueta" for="CuentaDestino">Cuenta Destino </label>
+                        <input type="text" name="cuentaOrigen" value="${traspasoBean.cuentaFinal}" disabled >
+                    </div>
                     <div class="form-group">
                         <label class="etiqueta" for="Periodico">Traspaso Periodico</label>
                         <input type="checkbox" name="periodico"  checked disabled>
