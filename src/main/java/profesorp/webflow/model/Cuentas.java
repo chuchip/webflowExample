@@ -11,7 +11,5 @@ public class Cuentas implements Serializable{
   
     @Id
     String cuenta;
-    String importe;
-  
-    
+    double importe;      
 }

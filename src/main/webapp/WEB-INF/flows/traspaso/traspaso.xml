@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+    
+    <var name="traspasoBean" class="profesorp.webflow.controller.TraspasoBean"/>
+    <on-start>       
+        <evaluate expression="logicaService.getCliente()" result="flowScope.cliente" />              
+    </on-start>
+    
+    <view-state id="cuentaOrigen" model="traspasoBean">        
+        <on-render>
+            <evaluate expression="logicaService.getCuentasByCliente()" result="flowScope.cuentas" />
+        </on-render>
+        <transition on="activate" to="importe"/>       
+        
+    </view-state>
+ 
+    <view-state id="importe" model="traspasoBean">    
+        <on-render>
+            <evaluate expression="false" result="traspasoBean.puestoPeriodico" />
+        </on-render>  
+        <transition on="salir" to="comprobarImporte">
+            <evaluate expression="logicaService.hasCredit(traspasoBean)" />
+        </transition>
+    </view-state>
+   
+    <decision-state id="comprobarImporte">
+        <if test="logicaService.checkImporte(traspasoBean)"
+            then="periocidad"
+            else="importe"/>
+    </decision-state>
+    
+    <decision-state id="periocidad">
+        <if test="logicaService.isPeriodico(traspasoBean)"
+            then="periodico"
+            else="confirmar"/>
+    </decision-state>
+    <subflow-state id="periodico" subflow="traspaso_time">
+        <input name="traspasoBean" />
+        <transition on="salir" to="confirmar">            
+        </transition>
+    </subflow-state>
+    <view-state id="confirmar">        
+        <transition on="salir" to="salir"/>
+    </view-state>
+    
+    <view-state id="failure" />
+    <end-state id="salir" view="externalRedirect:./index?transferencia=1" />
+    <end-state id="cancel" view="externalRedirect:./index?transferencia=0" />
+    <global-transitions>
+        <transition on="cancel" to="cancel" />
+    </global-transitions>
+</flow>

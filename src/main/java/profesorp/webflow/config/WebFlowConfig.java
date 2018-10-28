@@ -27,7 +27,8 @@ public class WebFlowConfig extends AbstractFlowConfiguration {
     @Bean
     public FlowDefinitionRegistry flowRegistry() {
         return getFlowDefinitionRegistryBuilder()
-                .addFlowLocation("/WEB-INF/flows/traspaso.xml","traspaso")
+                .addFlowLocation("/WEB-INF/flows/traspaso/traspaso.xml","traspaso")
+                .addFlowLocation("/WEB-INF/flows/traspaso/time/traspaso_time.xml","traspaso_time")
                 .build();
     }
 

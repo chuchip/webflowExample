@@ -9,29 +9,27 @@
     </head>
     <body>
         <div class="container">    
-            <div class="font-weight-bold jumbotron text-center">Realizar traspaso</div>
 
-            <div class="row justify-content-center">
-                
+            <jsp:include page="./_navegador.jsp" /> 
+            <div class="row justify-content-center ">
                 <form method="post" action="${flowExecutionUrl}">
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <input type="hidden" name="_eventId" value="activate">
-                    <div class="col">
-                        <label for="Cuenta">Elija Cuenta Origen: </label>
+
+                    <div class="form-group">                   
+                        <label class="etiqueta" for="Cuenta">Elija Cuenta Origen: </label>
                         <select name="cuentaOrigen">
                             <c:forEach items="${cuentas}" var="item">
                                 <option value="${item}">${item}</option>
                             </c:forEach>         
                         </select>
                     </div>
-                   <input type="hidden" name="importe" value="${traspasoBean.importe}">         
-                    <div class="col">
-                        <input class="btn btn-primary" type="submit" value="Siguiente" />&nbsp;
-                         <input type="button" class="btn btn btn-warning" value="Cancel" onclick="location.href = '${flowExecutionUrl}&_eventId=cancel';">
+                    <div class="col ">
+                        <input class="btn btn-primary" type="submit" value="Siguiente" />
                     </div>
+
                 </form>
             </div>
-            
-        </div>
+        </div>           
     </body>
 </html>

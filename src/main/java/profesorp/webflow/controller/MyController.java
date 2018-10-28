@@ -20,7 +20,7 @@ public class MyController {
     LogicaService logicaService;
     
 
-    static Logger logger=LoggerFactory.getLogger(MyController.class);
+    Logger logger=LoggerFactory.getLogger(MyController.class);
     
     Clientes usu;
   
@@ -45,7 +45,6 @@ public class MyController {
     public String login(ModelAndView mod) {
         logger.info("request login");
         return "login";
-    }
-
+    }    
 
 }

@@ -1,18 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package profesorp.webflow.controller;
 
 import java.io.Serializable;
+import java.sql.Date;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 public class TraspasoBean implements Serializable
 {
     String cuentaOrigen="";
     double importe=0;
+    String cuentaFinal="";    
+    Date fechaTraspaso ;
+    Date fechaFinal ;
+    boolean periodico=false;
+    String msgImporte=null;
+    private boolean puestoPeriodico=false;
+    
+    public TraspasoBean()
+    {
+        fechaTraspaso=new Date(System.currentTimeMillis());
+        fechaFinal=new Date(System.currentTimeMillis());
+    }
+    public void setPeriodico(boolean periodico)
+    {
+        this.periodico=periodico;
+        puestoPeriodico=periodico;
+    }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+    
+    <input name="traspasoBean" required="true" />  
+    
+    <view-state id="tiempo" model="traspasoBean">         
+        <transition on="salir" to="salir"/>               
+    </view-state>
+    <end-state id="salir" />
+    <end-state id="cancel" />
+    <global-transitions>
+        <transition on="cancel" to="cancel" />
+    </global-transitions>
+</flow>
