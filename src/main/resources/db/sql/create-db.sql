@@ -36,5 +36,4 @@ CREATE TABLE user_roles (
   PRIMARY KEY (user_role_id),
   UNIQUE KEY uni_username_role (role,username)
   );
-
 alter table user_roles add CONSTRAINT fk_username FOREIGN KEY (username) REFERENCES users (username)

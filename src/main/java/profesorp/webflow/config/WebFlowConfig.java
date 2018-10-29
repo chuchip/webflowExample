@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package profesorp.webflow.config;
 
 import java.util.Collections;
@@ -14,10 +9,7 @@ import org.springframework.webflow.definition.registry.FlowDefinitionRegistry;
 import org.springframework.webflow.engine.builder.support.FlowBuilderServices;
 import org.springframework.webflow.executor.FlowExecutor;
 import org.springframework.webflow.mvc.builder.MvcViewFactoryCreator;
-/**
- *
- * @author chuchip
- */
+
 @Configuration
 public class WebFlowConfig extends AbstractFlowConfiguration {
 

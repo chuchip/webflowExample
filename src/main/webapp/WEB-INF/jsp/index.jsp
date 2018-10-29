@@ -132,7 +132,7 @@
                             <input type='password' name='password' />
                         </div>
                         <div class="w-100"></div>
-                        <div class="col text-right">
+                        <div class="col text-center">
                             <input class="btn btn-primary" name="submit" type="submit" value="submit" />
                         </div>
 

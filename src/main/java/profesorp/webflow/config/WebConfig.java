@@ -29,9 +29,7 @@ public class WebConfig  implements WebMvcConfigurer
 
         registry
           .addResourceHandler("/resources/**")
-          .addResourceLocations("/WEB-INF/resources/")
-          ;
-
+          .addResourceLocations("/WEB-INF/resources/");
     }
     @Bean
     public ViewResolver viewResolver() {
