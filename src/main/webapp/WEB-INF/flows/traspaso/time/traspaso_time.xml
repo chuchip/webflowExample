@@ -7,11 +7,9 @@
     <input name="traspasoBean" required="true" />  
     
     <view-state id="tiempo" model="traspasoBean">         
-        <transition on="salir" to="salir"/>               
+        <transition on="salir" to="salir"/>       
+        <transition on="cancelar" to="cancel" />        
     </view-state>
     <end-state id="salir" />
     <end-state id="cancel" />
-    <global-transitions>
-        <transition on="cancel" to="cancel" />
-    </global-transitions>
 </flow>

@@ -44,7 +44,7 @@
                     </div>
                     <div class="col">
                         <input class="btn btn-primary" type="submit" value="Siguiente" />&nbsp;
-                        <a class="nav-link" href="${flowExecutionUrl}&_eventId=cancel">Cancelar</a>
+                        <a class="nav-link" href="${flowExecutionUrl}&_eventId=cancelar">Cancelar</a>
                     </div>
                     
                 </form>

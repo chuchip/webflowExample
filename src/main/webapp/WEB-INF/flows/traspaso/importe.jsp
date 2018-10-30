@@ -10,8 +10,8 @@
     </head>
     <body>
         <div class="container">    
-           <jsp:include page="./_navegador.jsp" /> 
-          
+            <jsp:include page="./_navegador.jsp" /> 
+
             <div class="row justify-content-center">                
                 <form method="post" action="${flowExecutionUrl}">
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -34,19 +34,19 @@
                         <input type="text" name="cuentaFinal" value="${traspasoBean.cuentaFinal}" >
                     </div>
                     <div class="form-group">
-                         <label class="etiqueta"  for="Periodico">Traspaso Periodico</label>
-                         <input type="checkbox" name="periodico" value="true"
-                           <c:if test="${traspasoBean.periodico}">
-                                checked 
-                           </c:if>
-                         >
+                        <label class="etiqueta"  for="Periodico">Traspaso Periodico</label>
+                        <input type="checkbox" name="periodico" value="true"
+                               <c:if test="${traspasoBean.periodico}">
+                                   checked 
+                               </c:if>
+                               >
                     </div>
                     <div class="col">
                         <input class="btn btn-primary" type="submit" value="Siguiente" />&nbsp;
                     </div>
                 </form>
             </div>
-            
+
         </div>
     </body>
 </html>
