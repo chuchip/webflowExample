@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import profesorp.webflow.model.Clientes;
 import profesorp.webflow.services.LogicaService;
 
-
 @Controller
 @RequestMapping("/")
 public class MyController {
@@ -19,7 +18,6 @@ public class MyController {
     @Autowired
     LogicaService logicaService;
     
-
     Logger logger=LoggerFactory.getLogger(MyController.class);
     
     Clientes cliente;
@@ -34,10 +32,9 @@ public class MyController {
 
     @RequestMapping("user")
     public String privado(Model mod, Principal princ) {
-
         logger.info("request user");
         cliente = logicaService.getClienteById(princ.getName());
-        mod.addAttribute("usuario", cliente);
+        mod.addAttribute("cliente", cliente);
         return "index";
     }
 
