@@ -12,6 +12,6 @@ import profesorp.webflow.model.Clientes;
  *
  * @author chuchip
  */
-public interface UsuariosRepository extends CrudRepository<Clientes, String> {
+public interface ClientesRepository extends CrudRepository<Clientes, String> {
     
 }

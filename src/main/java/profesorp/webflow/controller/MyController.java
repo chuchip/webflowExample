@@ -22,12 +22,12 @@ public class MyController {
 
     Logger logger=LoggerFactory.getLogger(MyController.class);
     
-    Clientes usu;
+    Clientes cliente;
   
     @RequestMapping(value = {"/", "index"})
     public ModelAndView indice1(ModelAndView mod) {
         logger.info("request index");
-        mod.addObject("usuario", usu);
+        mod.addObject("cliente", cliente);
         mod.setViewName("index");
         return mod;
     }
@@ -36,8 +36,8 @@ public class MyController {
     public String privado(Model mod, Principal princ) {
 
         logger.info("request user");
-        usu = logicaService.getUsuarioById(princ.getName());
-        mod.addAttribute("usuario", usu);
+        cliente = logicaService.getClienteById(princ.getName());
+        mod.addAttribute("usuario", cliente);
         return "index";
     }
 

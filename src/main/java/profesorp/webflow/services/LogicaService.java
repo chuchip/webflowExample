@@ -8,9 +8,9 @@ import org.springframework.web.context.annotation.SessionScope;
 import profesorp.webflow.controller.TraspasoBean;
 import profesorp.webflow.model.Clientes;
 import profesorp.webflow.repository.CuentasRepository;
-import profesorp.webflow.repository.UsuariosRepository;
 import profesorp.webflow.exceptions.NotFoundException;
 import profesorp.webflow.model.Cuentas;
+import profesorp.webflow.repository.ClientesRepository;
 import profesorp.webflow.repository.CuentasClientesRepository;
 
 @Service
@@ -21,16 +21,16 @@ public class LogicaService {
     CuentasRepository cuentasRepository;
 
     @Autowired
-    UsuariosRepository usuariosRepository;
+    ClientesRepository clientesRepository;
    
     @Autowired
     CuentasClientesRepository cuentasClientesRepository;
     
     Clientes cliente;
     
-    public Clientes getUsuarioById(String usuario)
+    public Clientes getClienteById(String usuario)
     {
-        cliente= usuariosRepository.findById(usuario).orElseThrow(()-> new NotFoundException("Usuario: "+usuario+" No encontrado"));
+        cliente= clientesRepository.findById(usuario).orElseThrow(()-> new NotFoundException("Cliente: "+cliente+" No encontrado"));
         return cliente;
     }
     public Iterable<String> getCuentasByCliente()

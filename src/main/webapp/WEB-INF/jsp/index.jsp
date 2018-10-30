@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="bg-primary border col-4  text-right">
-                        Bienvenido:<b>${usuario.getNombre()}</b>
+                        Bienvenido:<b>${cliente.getNombre()}</b>
                     </div>
                 </div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
